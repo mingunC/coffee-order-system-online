@@ -21,7 +21,7 @@ public class Branch {
     private String phoneNumber;
 
     @Column
-    private String openAt;
+    private ZonedDateTime openAt;
 
     @Column
     private ZonedDateTime closeAt;

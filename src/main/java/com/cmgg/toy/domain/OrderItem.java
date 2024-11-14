@@ -10,7 +10,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class OrderItem {
 
     @Id
-    private String id;
+    private String orderItemId;
 
     @Column
     private int coffeeId;

@@ -1,14 +1,16 @@
 package com.cmgg.toy.domain;
 
-import java.security.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Table(name = "orders")
@@ -25,18 +27,19 @@ public class Order {
     @MappedCollection(idColumn = "order_item_id", keyColumn = "order_id")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    public Order(int customerId, Timestamp orderedAt, List<OrderItem> orderItems) {
+    public Order(int customerId, List<OrderItem> orderItems) {
         this.customerId = customerId;
-        this.orderedAt = orderedAt;
+        this.orderedAt = Timestamp.valueOf(LocalDateTime.now());
         this.orderItems = orderItems;
     }
 
-    public static Order newORder(CreateOrder createOrder) {
+    public static Order newOrder(CreateOrder createOrder) {
         List<OrderItem> items = new ArrayList<>();
 
-        for(Map.Entry<Integer, Integer> entry : createOrder.getQuantityByCoffee().entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : createOrder.getQuantityByCoffee().entrySet()) {
             items.add(new OrderItem(entry.getKey(), entry.getValue()));
         }
+
         return new Order(createOrder.getCustomerId(), items);
     }
 }

@@ -12,7 +12,7 @@ public class Customer {
     private int customerId;
 
     @Column
-    private String Name;
+    private String name;
 
     @Column
     private String address;
@@ -21,7 +21,7 @@ public class Customer {
     private String phoneNumber;
 
     public Customer(String name, String address, String phoneNumber) {
-        this.Name = name;
+        this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
