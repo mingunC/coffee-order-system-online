@@ -2,6 +2,7 @@ package com.cmgg.toy.controller;
 
 import com.cmgg.toy.domain.CreateCustomer;
 import com.cmgg.toy.domain.Customer;
+import com.cmgg.toy.domain.CustomerDto;
 import com.cmgg.toy.service.CustomerService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,18 +18,18 @@ public class CustomerController {
     }
 
     @PostMapping("/api/v1/customer")
-    public Customer createNewCustomer(
+    public Response<CustomerDto> createNewCustomer(
             @RequestParam String name,
             @RequestParam String address,
             @RequestParam String phoneNumber
 
     ) {
-        return customerService.newCustomer(
+        return Response.success(customerService.newCustomer(
                 CreateCustomer.builder()
                         .address(address)
                         .name(name)
                         .phoneNumber(phoneNumber)
-                        .build()
+                        .build())
         );
     }
 }
