@@ -43,3 +43,26 @@ CREATE TABLE customers
     address      VARCHAR(100) NOT NULL,
     PRIMARY KEY (customer_id)
 );
+
+DROP TABLE IF EXISTS branches;
+
+CREATE TABLE branches(
+    branch_id  INT NOT NULL AUTO_INCREMENT,
+    name      VARCHAR(100) NOT NULL ,
+    address   VARCHAR(100) NOT NULL ,
+    phone_number VARCHAR(100) NOT NULL ,
+    open_at VARCHAR(100) NOT NULL ,
+    close_at VARCHAR(100) NOT NULL ,
+    PRIMARY KEY (branch_id)
+);
+
+DROP TABLE IF EXISTS branch_coffees;
+
+CREATE TABLE branch_coffees
+(
+    branch_coffee_id INT NOT NULL AUTO_INCREMENT,
+    store_id         INT NOT NULL,
+    coffee_id        INT NOT NULL,
+    stock_quantity    INT NOT NULL,
+    PRIMARY KEY(branch_coffee_id)
+);

@@ -9,7 +9,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Branch {
 
     @Id
-    private String branchId;
+    private int branchId;
 
     @Column
     private String name;
@@ -21,8 +21,8 @@ public class Branch {
     private String phoneNumber;
 
     @Column
-    private ZonedDateTime openAt;
+    private String openAt;
 
     @Column
-    private ZonedDateTime closeAt;
+    private String closeAt;
 }

@@ -1,21 +1,22 @@
 package com.cmgg.toy.domain;
 
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
-
+@Getter
 @Table(name = "branch_Coffees")
 public class BranchCoffee {
 
     @Id
-    private String branchCoffeeId;
+    private int branchCoffeeId;
 
     @Column
-    private String storeId;
+    private int storeId;
 
     @Column
-    private String coffeeId;
+    private int coffeeId;
 
     @Column
-    private String stockQuantity;
+    private int stockQuantity;
 }

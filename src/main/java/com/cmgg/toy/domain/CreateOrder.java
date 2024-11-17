@@ -8,5 +8,6 @@ import lombok.Getter;
 @Builder
 public class CreateOrder {
     private int customerId;
+    private int branchId;
     private Map<Integer, Integer> quantityByCoffee; // [iced americano, 3
 }
