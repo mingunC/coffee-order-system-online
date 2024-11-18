@@ -3,6 +3,7 @@ package com.cmgg.toy.controller;
 import com.cmgg.toy.domain.CreateOrder;
 import com.cmgg.toy.service.OrderService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -17,7 +18,9 @@ public class OrderController {
     }
 
     @PostMapping("/api/v1/orders")
-    public Response<Void> newOrder() {
+    public Response<Void> newOrder(
+            @RequestBody CreateOrder createOrder
+    ) {
         HashMap<Integer, Integer> orderMap = new HashMap<>();
         orderMap.put(1 ,5);
         orderMap.put(2 ,15);

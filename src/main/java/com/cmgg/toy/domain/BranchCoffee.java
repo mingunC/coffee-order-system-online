@@ -19,4 +19,11 @@ public class BranchCoffee {
 
     @Column
     private int stockQuantity;
+
+    public void adjustStockQuantity(int buyQuantity) {
+        if(stockQuantity < buyQuantity) {
+            throw new RuntimeException("Order quantity never exceeds stock quantity");
+        }
+        this.stockQuantity = this.stockQuantity - buyQuantity;
+    }
 }

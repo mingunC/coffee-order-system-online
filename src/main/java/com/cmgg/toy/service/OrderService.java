@@ -33,7 +33,10 @@ public class OrderService {
                 throw new RuntimeException("Not enough stock for coffee");
             }
 
+            branchCoffee.adjustStockQuantity(buyQuantity);
+            branchCoffee.add(branchCoffee);
         }
+
         Order entity = Order.newOrder(createOrder);
         orderRepository.save(entity);
     }

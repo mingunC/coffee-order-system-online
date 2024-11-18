@@ -4,6 +4,7 @@ import com.cmgg.toy.domain.BranchCoffee;
 import com.cmgg.toy.repository.BranchCoffeeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,5 +23,8 @@ public class BranchService {
         }
 
         return branchCoffeeOptional.get();
+    }
+    public void saveAll(List<BranchCoffee> branchCoffees) {
+        branchCoffeeRepository.saveAll(branchCoffees);
     }
 }
