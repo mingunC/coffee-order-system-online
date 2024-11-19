@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cmgg.toy.service.OrderServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-11-19T01:43:08" hostname="Mac" time="0.416">
+  <properties/>
+  <testcase name="When buy Quantity excess stock Quantity, it is available" classname="com.cmgg.toy.service.OrderServiceTest" time="0.416">
+    <failure message="java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class java.util.Set (java.util.ArrayList and java.util.Set are in module java.base of loader 'bootstrap')" type="java.lang.ClassCastException">java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class java.util.Set (java.util.ArrayList and java.util.Set are in module java.base of loader 'bootstrap')
+	at com.cmgg.toy.domain.Order.&lt;init&gt;(Order.java:31)
+	at com.cmgg.toy.domain.Order.newOrder(Order.java:41)
+	at com.cmgg.toy.service.OrderService.newOrder(OrderService.java:43)
+	at com.cmgg.toy.service.OrderServiceTest.stockQuantityTest_success(OrderServiceTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
