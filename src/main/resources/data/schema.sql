@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS branch_coffees;
 CREATE TABLE branch_coffees
 (
     branch_coffee_id INT NOT NULL AUTO_INCREMENT,
-    store_id         INT NOT NULL,
+    branch_id         INT NOT NULL,
     coffee_id        INT NOT NULL,
     stock_quantity    INT NOT NULL,
     PRIMARY KEY(branch_coffee_id)

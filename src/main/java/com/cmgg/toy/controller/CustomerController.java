@@ -17,7 +17,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping("/api/v1/customer")
+    @PostMapping("/api/v1/customers")
     public Response<CustomerDto> createNewCustomer(
             @RequestParam String name,
             @RequestParam String address,
@@ -31,5 +31,5 @@ public class CustomerController {
                         .phoneNumber(phoneNumber)
                         .build())
         );
-    }
+    } 
 }

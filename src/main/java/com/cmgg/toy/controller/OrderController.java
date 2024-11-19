@@ -19,14 +19,12 @@ public class OrderController {
 
     @PostMapping("/api/v1/orders")
     public Response<Void> newOrder(
-            @RequestBody CreateOrder createOrder
+            @RequestBody NewOrderRequest request
     ) {
-        HashMap<Integer, Integer> orderMap = new HashMap<>();
-        orderMap.put(1 ,5);
-        orderMap.put(2 ,15);
         orderService.newOrder(CreateOrder.builder()
-                .customerId(1)
-                .quantityByCoffee(orderMap)
+                .customerId(request.getCustomerId())
+                .branchId(request.getBranchId())
+                .quantityByCoffee(request.getCoffees())
                 .build());
         return Response.success(null);
     }

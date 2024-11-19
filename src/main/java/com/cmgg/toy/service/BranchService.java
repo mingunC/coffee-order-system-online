@@ -17,7 +17,7 @@ public class BranchService {
     }
 
     public BranchCoffee getBranchCoffee(int branchId, int coffeeId) {
-        Optional<BranchCoffee> branchCoffeeOptional = branchCoffeeRepository.findByBranchAndCoffeeId(branchId, coffeeId);
+        Optional<BranchCoffee> branchCoffeeOptional = branchCoffeeRepository.findByBranchIdAndCoffeeId(branchId, coffeeId);
         if(branchCoffeeOptional.isEmpty()) {
             throw new RuntimeException("Not exist branch coffee");
         }

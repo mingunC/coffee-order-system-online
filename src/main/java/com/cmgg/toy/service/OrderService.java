@@ -6,6 +6,8 @@ import com.cmgg.toy.domain.Order;
 import com.cmgg.toy.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -20,6 +22,7 @@ public class OrderService {
     }
 
     public void newOrder(CreateOrder createOrder) {
+        List<BranchCoffee> branchCoffees = new ArrayList<>();
         for(Map.Entry<Integer, Integer> entry : createOrder.getQuantityByCoffee().entrySet()) {
             Integer coffeeId = entry.getKey();
             Integer buyQuantity = entry.getValue();
@@ -34,10 +37,11 @@ public class OrderService {
             }
 
             branchCoffee.adjustStockQuantity(buyQuantity);
-            branchCoffee.add(branchCoffee);
+            branchCoffees.add(branchCoffee);
         }
 
         Order entity = Order.newOrder(createOrder);
         orderRepository.save(entity);
+        branchService.saveAll(branchCoffees);
     }
 }
